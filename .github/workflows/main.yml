@@ -7,8 +7,8 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  #pull_request:
+    #branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -24,7 +24,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
       - name: Set Up Python 3.7
@@ -33,14 +33,17 @@ jobs:
           python-version: 3.7
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line python
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
       
       - name: Run test
         run: |
           python four_dp.py
+          
+      - name: Commit
+        run: |
+          git config --global user.email 1499040509@qq.com
+          git config --global user.name CJQ6661999
+          git add .
+          git commit -m "Update the file"
       
       - name: Push changes
         uses: ad-m/github-push-action@master
