@@ -14,6 +14,6 @@ def minDis(word1,word2):
             dp[i][j] = min(dp[i-1][j]+1,dp[i][j-1]+1,dp[i-1][j-1]+(0 if word1[i-1]==word2[j-1] else 1))
     return dp[m-1][n-1]
 
-word1=input()
-word2=input()
+word1='commmit'
+word2='call'
 print(minDis(word1,word2))
