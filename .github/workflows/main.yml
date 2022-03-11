@@ -33,19 +33,7 @@ jobs:
           python-version: 3.7
 
       # Runs a set of commands using the runners shell
-      
       - name: Run test
         run: |
           python four_dp.py
-          
-      - name: Commit
-        run: |
-          git config --global user.email 1499040509@qq.com
-          git config --global user.name CJQ6661999
-          git add .
-          git commit -m "Update the file"
-      
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+    
